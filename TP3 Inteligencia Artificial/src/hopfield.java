@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class hopfield {
+public class Hopfield {
 
     static final int filas = 10;
     static final int columnas = 10;
@@ -74,7 +74,7 @@ public class hopfield {
         return ruidosa;
     }
 
-    // Aprendizaje Hebbiano
+    // Aprendizaje Hebb
     public static double[][] entrenarHebb(int[][] patron) {
 
         double[][] W = new double[N][N];
@@ -103,6 +103,7 @@ public class hopfield {
                 for (int j = 0; j < N; j++) {
                     suma += W[i][j] * estado[j];
                 }
+                // Función de activación binaria
                 nuevoEstado[i] = (suma >= 0) ? 1 : -1;
             }
             if (compararVectores(estado, nuevoEstado)) {
